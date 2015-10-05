@@ -8,7 +8,11 @@
 
 var cadena = prompt("Introduce una cadena");
 var cadenaInvertida ="";
-alert(esPalindromo(cadena));
+if(esPalindromo(cadena)){
+	alert("Es palíndromo");
+}else{
+	alert("No es palíndromo");
+}
 
 /** 
 * Funcion que comprueba si una cadena es un palindromo
@@ -16,6 +20,9 @@ alert(esPalindromo(cadena));
 * @return Devuelve una cadena que indica si es un palindromo o no
 */
 function esPalindromo(cadena) {
+
+	var cadenaSinEspacios = "";
+
 	//Ponemos la cadena en minuscula
 	cadena = cadena.toLowerCase();
 
@@ -23,7 +30,6 @@ function esPalindromo(cadena) {
 	cadena = cadena.split("");
 
 	//Le quitamos los espacios
-	var cadenaSinEspacios = "";
   	for(i in cadena) {
     	if(cadena[i] != " ") {
       		cadenaSinEspacios += cadena[i];
@@ -41,10 +47,10 @@ function esPalindromo(cadena) {
  	iguales = true;
  	for (j=0;j<cadenaInvertida.length;j++){
  		if(cadenaInvertida.charAt(j)!=cadenaSinEspacios.charAt(j)){
- 			return "No es un palindromo";
- 		} else{
- 			return "Es un palindromo";
+ 			return false;
  		}
  	}
+
+ 	return true;
 }
 
